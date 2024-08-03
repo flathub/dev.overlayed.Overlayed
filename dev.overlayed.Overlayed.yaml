@@ -1,7 +1,7 @@
 id: dev.overlayed.Overlayed
 
 runtime: org.gnome.Platform
-runtime-version: "46"
+runtime-version: '46'
 sdk: org.gnome.Sdk
 
 command: overlayed
@@ -17,8 +17,8 @@ modules:
   - name: webkit2gtk-4.0
     sources:
       - type: archive
-        url: https://webkitgtk.org/releases/webkitgtk-2.44.1.tar.xz
-        sha256: 425b1459b0f04d0600c78d1abb5e7edfa3c060a420f8b231e9a6a2d5d29c5561
+        url: https://webkitgtk.org/releases/webkitgtk-2.44.2.tar.xz
+        sha256: 523f42c8ff24832add17631f6eaafe8f9303afe316ef1a7e1844b952a7f7521b
         x-checker-data:
           type: html
           url: https://webkitgtk.org/releases/
@@ -45,7 +45,7 @@ modules:
             url: https://dotat.at/prog/unifdef/unifdef-2.12.tar.xz
             sha256: 43ce0f02ecdcdc723b2475575563ddb192e988c886d368260bc0a63aee3ac400
         cleanup:
-          - "*"
+          - '*'
 
   - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
 
@@ -76,8 +76,7 @@ modules:
           type: json
           url: https://api.github.com/repos/overlayeddev/overlayed/releases/latest
           version-query: .tag_name
-          url-query:
-            '"https://github.com/overlayeddev/overlayed/releases/download/"
+          url-query: '"https://github.com/overlayeddev/overlayed/releases/download/"
             + $version + "/overlayed_" + $version + "_amd64.deb"'
         # TODO: raise upstream here to support arm build for linux
         only-arches: [x86_64]
