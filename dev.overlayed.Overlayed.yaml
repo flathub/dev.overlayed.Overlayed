@@ -25,11 +25,12 @@ modules:
           url-template: https://webkitgtk.org/releases/webkitgtk-$version.tar.xz
     buildsystem: cmake-ninja
     config-opts:
-      # taken from https://gitlab.gnome.org/GNOME/gnome-build-meta/-/blob/5a241420c2ee85cc5080dd7cf7ba3049fd80fcf1/elements/world/webkit2gtk-4.0.bst
+      # control flags for webkitgtk building
       - -DPORT=GTK
       - -DENABLE_DOCUMENTATION=OFF
       - -DENABLE_WEBDRIVER=OFF
       - -DENABLE_GAMEPAD=OFF
+      - -DUSE_LIBSECRET=OFF
       - -DUSE_GTK4=OFF
       - -DUSE_LIBBACKTRACE=OFF
       - -DUSE_SOUP2=ON
