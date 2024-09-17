@@ -35,6 +35,7 @@ modules:
       - -DUSE_GTK4=OFF
       - -DUSE_LIBBACKTRACE=OFF
       - -DUSE_SOUP2=ON
+      - -DUSE_JPEGXL=OFF
     modules:
       - shared-modules/libsoup/libsoup-2.4.json
 
