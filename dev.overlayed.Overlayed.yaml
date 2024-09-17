@@ -26,15 +26,16 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       # control flags for webkitgtk building
+      # notes: https://blogs.gnome.org/mcatanzaro/2023/03/21/webkitgtk-api-for-gtk-4-is-now-stable/
       - -DPORT=GTK
       - -DENABLE_DOCUMENTATION=OFF
       - -DENABLE_WEBDRIVER=OFF
       - -DENABLE_GAMEPAD=OFF
       - -DUSE_LIBSECRET=OFF
       - -DENABLE_SPELLCHECK=OFF
-      - -DUSE_GTK4=OFF
+      - -DUSE_GTK4=ON
+      - -DUSE_AVIFUSE_GTK4=OFF
       - -DUSE_LIBBACKTRACE=OFF
-      - -DUSE_SOUP2=ON
       - -DUSE_WOFF2=OFF
       - -DUSE_JPEGXL=OFF
     modules:
