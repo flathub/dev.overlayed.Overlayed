@@ -40,6 +40,7 @@ modules:
       - -DUSE_WOFF2=OFF
       - -DUSE_JPEGXL=OFF
       - -DUSE_AVIF=OFF
+      - -DUSE_SYSTEM_SYSPROF_CAPTURE=OFF
     modules:
       - shared-modules/libsoup/libsoup-2.4.json
 
