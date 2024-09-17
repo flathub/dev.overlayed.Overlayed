@@ -25,7 +25,9 @@ modules:
           url-template: https://webkitgtk.org/releases/webkitgtk-$version.tar.xz
     buildsystem: cmake-ninja
     config-opts:
-      # control flags for webkitgtk building
+      # NOTE: control flags for webkitgtk-4.1 building that tauri v2 requiressince
+      # since freedesktop does not have webkitgtk-4.1 we will build it from sauce
+      # then it should be available in the final flatpack dist and the app should run 🤞
       # notes: https://blogs.gnome.org/mcatanzaro/2023/03/21/webkitgtk-api-for-gtk-4-is-now-stable/
       - -DPORT=GTK
       - -DENABLE_DOCUMENTATION=OFF
@@ -33,6 +35,8 @@ modules:
       - -DENABLE_GAMEPAD=OFF
       - -DENABLE_SPELLCHECK=OFF
       - -DENABLE_BUBBLEWRAP_SANDBOX=OFF
+      - -DENABLE_MINIBROWSER=OFF
+      - -DENABLE_WEB_RTC=OFF
       - -DUSE_LIBSECRET=OFF
       - -DUSE_GTK4=OFF
       - -DUSE_AVIFUSE_GTK4=OFF
@@ -41,6 +45,8 @@ modules:
       - -DUSE_JPEGXL=OFF
       - -DUSE_AVIF=OFF
       - -DUSE_SYSTEM_SYSPROF_CAPTURE=OFF
+      - -DUSE_GSTREAMER_WEBRTC=OFF
+      - -DUSE_GSTREAMER_TRANSCODER=OFF
     modules:
       - shared-modules/libsoup/libsoup-2.4.json
 
