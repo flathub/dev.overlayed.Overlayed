@@ -65,7 +65,8 @@ modules:
     buildsystem: simple
     build-commands:
       - bsdtar -Oxf overlayed.deb 'data.tar.gz' | bsdtar -xf -
-      - desktop-file-edit \
+      - | 
+        desktop-file-edit \
           --set-icon="$FLATPAK_ID" \
           usr/share/applications/overlayed.desktop
 
