@@ -79,8 +79,8 @@ modules:
 
     sources:
       - type: file
-        url: https://raw.githubusercontent.com/overlayeddev/overlayed/b61dce517fa7f5dc6ea0f3b0e768798d65a9f1d2/distribution/dev.overlayed.Overlayed.metainfo.xml
-        sha256: 34d4c566958c9cab99ad7b6de2685afc8c76b707079787c577f566a81f090ae0 
+        url: https://raw.githubusercontent.com/overlayeddev/overlayed/4cc468dbecf30e3658839a06fa617d99632a6e50/distribution/dev.overlayed.Overlayed.metainfo.xml
+        sha256: 393ca42f40412940107846b1f0b53db5c4ed6c6c5e0fea5fef1711fa561c0f5a
 
       - type: file
         url: https://github.com/overlayeddev/overlayed/releases/download/v0.6.2/overlayed_0.6.2_amd64.deb
