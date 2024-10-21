@@ -16,8 +16,8 @@ modules:
   - name: webkit2gtk-4.1
     sources:
       - type: archive
-        url: https://webkitgtk.org/releases/webkitgtk-2.46.1.tar.xz
-        sha256: 2a14faac359aff941d0bc4443eb5537e3702bcaf316b0a129e0e65f3ff8eaac0
+        url: https://webkitgtk.org/releases/webkitgtk-2.46.2.tar.xz
+        sha256: 5aae1c5c0a30d5e9c5831652b6f1bdefc31d75e0ad81cb40185b0aed92ce79b6
         x-checker-data:
           type: html
           url: https://webkitgtk.org/releases/
@@ -84,7 +84,7 @@ modules:
 
       - type: file
         url: https://github.com/overlayeddev/overlayed/releases/download/v0.6.2/overlayed_0.6.2_amd64.deb
-        sha256: 9e5736e17f23b13892703dcbe44c9a32676fbc51e548b585e890afee02dafb59 
+        sha256: 9e5736e17f23b13892703dcbe44c9a32676fbc51e548b585e890afee02dafb59
         dest-filename: overlayed.deb
         x-checker-data:
           type: json
