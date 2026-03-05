@@ -1,7 +1,7 @@
 id: dev.overlayed.Overlayed
 
-runtime: org.freedesktop.Sdk
-runtime-version: '23.08'
+runtime: org.freedesktop.Platform
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: overlayed
 finish-args:
