@@ -5,8 +5,8 @@ runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 command: overlayed
 finish-args:
-  - --socket=wayland
-  - --socket=fallback-x11
+  - --socket=x11
+  - --env=GDK_BACKEND=x11
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
