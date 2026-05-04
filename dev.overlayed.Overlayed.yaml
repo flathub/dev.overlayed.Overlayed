@@ -1,66 +1,21 @@
 id: dev.overlayed.Overlayed
 
-runtime: org.freedesktop.Sdk
-runtime-version: '23.08'
-sdk: org.freedesktop.Sdk
+runtime: org.gnome.Platform
+runtime-version: '50'
+sdk: org.gnome.Sdk
 command: overlayed
 finish-args:
-  - --socket=wayland
-  - --socket=fallback-x11
+  - --socket=x11
+  - --env=GDK_BACKEND=x11
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
   - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --filesystem=xdg-run/tray-icon:create
 
 modules:
-  - name: webkit2gtk-4.1
-    sources:
-      - type: archive
-        url: https://webkitgtk.org/releases/webkitgtk-2.46.6.tar.xz
-        sha256: f2b31de693220ba9bab76ce6ddfe5b0bfab2515cb2b0a70f3c54d4050766c32b
-        x-checker-data:
-          type: html
-          url: https://webkitgtk.org/releases/
-          version-pattern: LATEST-STABLE-(\d[\.\d]+\d)
-          url-template: https://webkitgtk.org/releases/webkitgtk-$version.tar.xz
-    buildsystem: cmake-ninja
-    config-opts:
-      # NOTE: control flags for webkitgtk-4.1 (required for tauri)
-      # also we need this since freedesktop doesnt have webkit but gnome does
-      # https://blogs.gnome.org/mcatanzaro/2023/03/21/webkitgtk-api-for-gtk-4-is-now-stable/
-      - -DPORT=GTK
-      - -DENABLE_DOCUMENTATION=OFF
-      - -DENABLE_WEBDRIVER=OFF
-      - -DENABLE_GAMEPAD=OFF
-      - -DENABLE_SPELLCHECK=OFF
-      - -DENABLE_BUBBLEWRAP_SANDBOX=OFF
-      - -DENABLE_MINIBROWSER=OFF
-      - -DENABLE_WEB_RTC=OFF
-      - -DUSE_LIBSECRET=OFF
-      - -DUSE_GTK4=OFF
-      - -DUSE_AVIFUSE_GTK4=OFF
-      - -DUSE_LIBBACKTRACE=OFF
-      - -DUSE_WOFF2=OFF
-      - -DUSE_JPEGXL=OFF
-      - -DUSE_AVIF=OFF
-      - -DUSE_SYSTEM_SYSPROF_CAPTURE=OFF
-      - -DUSE_GSTREAMER_WEBRTC=OFF
-      - -DUSE_GSTREAMER_TRANSCODER=OFF
-    modules:
-      - shared-modules/libsoup/libsoup-2.4.json
-
-      - name: unifdef
-        no-autogen: true
-        make-install-args:
-          - prefix=${FLATPAK_DEST}
-        sources:
-          - type: archive
-            url: https://dotat.at/prog/unifdef/unifdef-2.12.tar.xz
-            sha256: 43ce0f02ecdcdc723b2475575563ddb192e988c886d368260bc0a63aee3ac400
-        cleanup:
-          - '*'
-
-  - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
+  - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
   - name: overlayed
     buildsystem: simple
     build-commands:
@@ -90,7 +45,8 @@ modules:
           type: json
           url: https://api.github.com/repos/overlayeddev/overlayed/releases/latest
           version-query: .tag_name
-          url-query: '"https://github.com/overlayeddev/overlayed/releases/download/"
+          url-query:
+            '"https://github.com/overlayeddev/overlayed/releases/download/"
             + $version + "/overlayed_" + $version + "_amd64.deb"'
         # TODO: raise upstream here to support arm build for linux
         only-arches: [x86_64]
