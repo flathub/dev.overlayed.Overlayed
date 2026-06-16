@@ -14,6 +14,7 @@ finish-args:
   - --talk-name=org.kde.StatusNotifierWatcher
   - --filesystem=xdg-run/tray-icon:create
   - --device=dri
+  - --env=GTK_MODULES=
 
 modules:
   - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
