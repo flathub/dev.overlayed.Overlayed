@@ -46,9 +46,7 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/overlayeddev/overlayed/releases/latest
-          version-query: .tag_name
-          url-query:
-            '"https://github.com/overlayeddev/overlayed/releases/download/"
-            + $version + "/overlayed_" + $version + "_amd64.deb"'
+          version-query: '.tag_name | ltrimstr("v")'
+          url-query: '.assets[] | select(.name == "Overlayed_" + $version + "_amd64.deb") | .browser_download_url'
         # TODO: raise upstream here to support arm build for linux
         only-arches: [x86_64]
